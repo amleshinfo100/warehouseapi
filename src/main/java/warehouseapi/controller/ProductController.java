@@ -2,6 +2,7 @@ package warehouseapi.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import warehouseapi.dto.ProductDto;
@@ -33,8 +34,8 @@ public class ProductController {
      */
     @Operation(summary = "create product")
     @PostMapping
-    public ProductDto save(@RequestBody @Valid ProductDto productDto) {
-        return this.productService.save(productDto);
+    public ResponseEntity<ProductDto> save(@RequestBody @Valid ProductDto productDto) {
+        return ResponseEntity.ok().body(this.productService.save(productDto));
     }
 
     /**
@@ -44,7 +45,7 @@ public class ProductController {
      */
     @Operation(summary = "search product with pagination")
     @PostMapping("/search")
-    public SearchResultDto searchProducts(@RequestBody @Valid SearchRequestDto searchRequestDto){
-        return productService.searchProducts(searchRequestDto);
+    public ResponseEntity<SearchResultDto> searchProducts(@RequestBody @Valid SearchRequestDto searchRequestDto){
+        return ResponseEntity.ok().body(productService.searchProducts(searchRequestDto));
     }
 }

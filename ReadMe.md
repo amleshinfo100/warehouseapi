@@ -30,5 +30,6 @@ D) Tech stacks/features used :
 11. Spring actuator - to expose health and other metrics endpoints
 12. H2 database - in memory database
 13. Open api specification - documentation of restful api, 
-    ready made interface which can be used for exceution of api also.
+    ready made interface which can be used for execution of api also.
+14. Junit, Mockito - testing
    
